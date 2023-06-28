@@ -1,0 +1,35 @@
+{
+    "name": "Prudent MIGABO",
+    "short_name": "Prudent MIGABO",
+    "start_url": ".",
+    "display": "standalone",
+    "background_color": "#121212",
+    "theme_color": "#019FAB",
+    "description": "Hi, am a mobile application developer with experience in developing applications for both iOS and Android platforms. I have experience in developing applications using Flutter(Dart), Java, and Kotlin programming languages. I am passionate about creating user-friendly applications that provide a seamless user experience. I am also experienced in working with teams and collaborating with designers to create visually appealing applications.",
+    "orientation": "portrait-primary",
+    "prefer_related_applications": false,
+    "icons": [
+        {
+            "src": "icons/Icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        },
+        {
+            "src": "icons/Icon-maskable-192.png",
+            "sizes": "192x192",
+            "type": "image/png",
+            "purpose": "maskable"
+        },
+        {
+            "src": "icons/Icon-maskable-512.png",
+            "sizes": "512x512",
+            "type": "image/png",
+            "purpose": "maskable"
+        }
+    ]
+}
