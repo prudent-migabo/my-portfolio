@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 
-import '../statics/constants.dart';
 import '../statics/data_values.dart';
 import '../statics/key_holders.dart';
 import '../theme/app_theme.dart';
-import '../theme/responsive_screen_provider.dart';
 import '../widgets/frame_title_helper1.dart';
-import '../widgets/frame_title.dart';
 
-class Ds9Skills extends StatelessWidget {
-  const Ds9Skills({Key? key}) : super(key: key);
+class Ms4Skills extends StatelessWidget {
+  const Ms4Skills({Key? key}) : super(key: key);
 
   Widget type1(String text){
     return Text(text,
@@ -32,26 +29,24 @@ class Ds9Skills extends StatelessWidget {
           FrameTitleHelper1(
             title: DataValues.skillsTitle,
             description: '',
-            responsivePadding: responsivePadding,
           ),
           GridView.count(
             shrinkWrap: true,
-            //primary: true,
             crossAxisSpacing: 15,
             mainAxisSpacing: 15,
             crossAxisCount: 2,
-            childAspectRatio: 1.2,
+            //childAspectRatio: (MediaQuery.of(context).size.width/(MediaQuery.of(context).size.height / 0.08)),
             children: <Widget>[
               SkillsCard(title: DataValues.skillsTitle1,
-                  skills: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      type1('- Dart', ),
-                      type1('- Java'),
-                      type1('- Kotlin'),
-                      type1('- JavaScript'),
-                    ],
-                  ),
+                skills: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    type1('- Dart', ),
+                    type1('- Java'),
+                    type1('- Kotlin'),
+                    type1('- JavaScript'),
+                  ],
+                ),
               ),
               SkillsCard(
                 title: DataValues.skillsTitle2,
@@ -96,16 +91,15 @@ class Ds9Skills extends StatelessWidget {
   }
 }
 
-
 class SkillsCard extends StatelessWidget {
-   SkillsCard({
+  SkillsCard({
     super.key,
-     required this.title,
-     required this.skills,
+    required this.title,
+    required this.skills,
 
   });
-   String title;
-   Widget skills;
+  String title;
+  Widget skills;
 
 
   @override
@@ -125,7 +119,6 @@ class SkillsCard extends StatelessWidget {
         ],
       ),
       child: Column(
-       // crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title,
             style: TextStyle(

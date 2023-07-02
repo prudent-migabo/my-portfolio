@@ -25,7 +25,6 @@ class FrameTitleHelper1 extends StatelessWidget {
                 : EdgeInsets.zero,
             child: SelectableText(
               description,
-              textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleSmall,
             ),
           ),

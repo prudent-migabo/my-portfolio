@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:portfolio_clean/statics/constants.dart';
 
 import '../statics/data_values.dart';
 import '../statics/key_holders.dart';
@@ -9,28 +10,28 @@ import '../widgets/container_banner.dart';
 import '../widgets/frame_title.dart';
 import '../widgets/social_profiles.dart';
 
-class MS7Contact extends StatelessWidget {
-  const MS7Contact({Key? key}) : super(key: key);
+class DS5Contact extends StatelessWidget {
+  const DS5Contact({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       key: KeyHolders.contactKey,
       color: AppThemeData.backgroundGrey,
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 40.0,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 40.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+      child: Padding(
+        padding: responsivePaddingFixedValue,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            const FrameTitle(
+                title: DataValues.contactTitle,
+                description: DataValues.contactDescription,
+              hasDescription: true,
+            ),
+            const SizedBox(height: 25,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                const FrameTitle(
-                    title: DataValues.contactTitle,
-                    description: DataValues.contactDescription),
-                const SizedBox(height: 30.0),
                 SelectableText(DataValues.contactBanner,
                     style: TextStyle(
                       fontSize: AppThemeData
@@ -39,7 +40,7 @@ class MS7Contact extends StatelessWidget {
                           .darkTheme.textTheme.titleLarge!.fontWeight,
                       color: AppThemeData.textWhite,
                     )),
-                const SizedBox(height: 5.0),
+                const SizedBox(width: 5,),
                 MouseRegion(
                   cursor: SystemMouseCursors.click,
                   child: GestureDetector(
@@ -71,25 +72,28 @@ class MS7Contact extends StatelessWidget {
                     ),
                   ),
                 ),
-                const SizedBox(height: 20,),
-                ButtonTextSmall(
-                  text: 'Get my resume',
-                  message: '',
-                  url: DataValues.mesPiecesBusinessUrl,
-                  textStyle: TextStyle(
-                    fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
-                    fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,
-                    color: AppThemeData.primaryColor,
-                  ),
-                ),
               ],
             ),
-          ),
-          const SizedBox(
-            height: 40.0,
-          ),
-          const SocialProfiles(),
-        ],
+            const SizedBox(height: 25,),
+            ButtonTextSmall(
+              text: 'Get my resume',
+              message: '',
+              url: DataValues.mesPiecesBusinessUrl,
+              textStyle: TextStyle(
+                fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
+                fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,
+                color: AppThemeData.primaryColor,
+              ),
+            ),
+            const SizedBox(
+              height: 40.0,
+            ),
+            const SocialProfiles(),
+            const SizedBox(
+              height: 20.0,
+            ),
+          ],
+        ),
       ),
     );
   }

@@ -1,6 +1,7 @@
-import 'package:portfolio_clean/desktop/ds_9_skills.dart';
+import 'package:portfolio_clean/desktop/ds_4_skills.dart';
 import 'package:flutter/material.dart';
 
+import '../statics/constants.dart';
 import '../statics/key_holders.dart';
 import '../statics/data_values.dart';
 import '../theme/app_theme.dart';
@@ -21,34 +22,26 @@ class DS2AboutMe extends StatelessWidget {
       key: KeyHolders.aboutKey,
       color: AppThemeData.backgroundGrey,
       child: Padding(
-        padding: const EdgeInsets.all(60.0),
-        child: Row(
+        padding: responsivePaddingFixedValue,
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  FrameTitleHelper1(
-                    title: DataValues.aboutMeTitle,
-                    description: DataValues.aboutMeDescription,
-                  ),
-                  ButtonTextSmall(
-                    text: 'Get my resume',
-                    message: '',
-                    url: DataValues.mesPiecesBusinessUrl,
-                    textStyle: TextStyle(
-                      fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
-                      fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,
-                      color: AppThemeData.primaryColor,
-                    ),
-                  ),
-                ],
-              ),
+            const FrameTitle(
+              title: DataValues.aboutMeTitle,
+              description: DataValues.aboutMeDescription,
+              hasDescription: true,
+
             ),
-            SizedBox(width: MediaQuery.of(context).size.width * 0.08),
-            Expanded(
-                child: Ds9Skills(),
+            const SizedBox(height: 20,),
+            ButtonTextSmall(
+              text: 'Get my resume',
+              message: '',
+              url: DataValues.mesPiecesBusinessUrl,
+              textStyle: TextStyle(
+                fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
+                fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,
+                color: AppThemeData.primaryColor,
+              ),
             ),
           ],
         ),

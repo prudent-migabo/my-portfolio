@@ -11,25 +11,24 @@ import '../widgets/container_banner.dart';
 import '../widgets/frame_title.dart';
 import '../widgets/projects_container.dart';
 
-class MS4Experience extends StatelessWidget {
-  const MS4Experience({Key? key}) : super(key: key);
+class MS3Projects extends StatelessWidget {
+  const MS3Projects({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      key: KeyHolders.experienceKey,
+      key: KeyHolders.projectsKey,
       color: AppThemeData.backgroundGrey,
       child: Padding(
         padding: const EdgeInsets.all(40.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-             FrameTitleHelper1(
-                title: DataValues.experienceTitle,
-                description: '',
-               responsivePadding: responsivePadding,
-             ),
-            const SizedBox(height: 20.0),
+            const FrameTitle(
+              title: DataValues.experienceTitle,
+              hasDescription: false,
+            ),
+            const SizedBox(height: 40.0),
             ProjectsContainer(
               projectName: DataValues.experienceOrg1Title,
               technologies: DataValues.experience1Description,
@@ -41,7 +40,7 @@ class MS4Experience extends StatelessWidget {
               img3: Assets.exp1Img3,
               img4: Assets.exp1Img4,
               img5: Assets.exp1Img5,
-              imgHeight: 350,
+              imgHeight: 380,
             ),
             const SizedBox(height: 20,),
             ProjectsContainer(

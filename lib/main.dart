@@ -1,25 +1,18 @@
-import 'package:portfolio_clean/desktop/ds_9_skills.dart';
+import 'package:portfolio_clean/desktop/ds_4_skills.dart';
 import 'package:flutter/material.dart';
 
+import 'statics/constants.dart';
 import 'theme/responsive_screen_provider.dart';
 import 'theme/app_theme.dart';
 import 'widgets/nav_bar.dart';
 import 'desktop/ds_1_header.dart';
 import 'desktop/ds_2_about_me.dart';
-import 'desktop/ds_3_education.dart';
-import 'desktop/ds_4_experience.dart';
-import 'desktop/ds_5_volunteering.dart';
-import 'desktop/ds_6_technotes.dart';
-import 'desktop/ds_7_contact.dart';
-import 'desktop/ds_8_footer.dart';
+import 'desktop/ds_3_projects.dart';
+import 'desktop/ds_5_contact.dart';
 import 'mobile/ms_1_header.dart';
 import 'mobile/ms_2_about_me.dart';
-import 'mobile/ms_3_education.dart';
-import 'mobile/ms_4_experience.dart';
-import 'mobile/ms_5_volunteering.dart';
-import 'mobile/ms_6_technotes.dart';
-import 'mobile/ms_7_contact.dart';
-import 'mobile/ms_8_footer.dart';
+import 'mobile/ms_3_projects.dart';
+import 'mobile/ms_5_contact.dart';
 
 void main() {
   runApp(const MyApp());
@@ -48,6 +41,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool _showBackToTopButton = false;
+  bool _canCarouselScroll = false;
   late ScrollController _scrollController;
 
   @override
@@ -61,6 +55,11 @@ class _HomePageState extends State<HomePage> {
                 _showBackToTopButton = true;
               } else {
                 _showBackToTopButton = false;
+              }
+              if (_scrollController.offset >= 600){
+                _canCarouselScroll = true;
+              } else{
+                _canCarouselScroll = false;
               }
             },
           );
@@ -78,7 +77,7 @@ class _HomePageState extends State<HomePage> {
 
   void _scrollToTop() {
     _scrollController.animateTo(0,
-        duration: const Duration(milliseconds: 1000), curve: Curves.easeInOut);
+        duration: const Duration(milliseconds: 1000), curve: Curves.easeInCubic);
   }
 
   @override
@@ -87,12 +86,16 @@ class _HomePageState extends State<HomePage> {
       return ListView(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
-        children: const [
-          DS1Header(),
-          DS2AboutMe(),
-          DS4Experience(),
-          // Ds9Skills(),
-          DS7Contact(),
+        children: [
+          const DS1Header(),
+          sectionSpacer,
+          const DS2AboutMe(),
+          sectionSpacer,
+          DS3Projects(canCarouselScroll: _canCarouselScroll,),
+          sectionSpacer,
+          const Ds4Skills(),
+          sectionSpacer,
+          const DS5Contact(),
         ],
       );
     }
@@ -104,8 +107,8 @@ class _HomePageState extends State<HomePage> {
         children: const [
           MS1Header(),
           MS2AboutMe(),
-          MS4Experience(),
-          MS7Contact(),
+          MS3Projects(),
+          MS5Contact(),
         ],
       );
     }

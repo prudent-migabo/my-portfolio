@@ -8,7 +8,7 @@ import '../widgets/text_pairs.dart';
 import '../widgets/container_card.dart';
 import '../widgets/container_banner.dart';
 import '../widgets/frame_title.dart';
-import 'ms_9_skills.dart';
+import 'ms_4_skills.dart';
 
 class MS2AboutMe extends StatelessWidget {
   const MS2AboutMe({Key? key}) : super(key: key);
@@ -27,7 +27,7 @@ class MS2AboutMe extends StatelessWidget {
                 title: DataValues.aboutMeTitle,
                 description: DataValues.aboutMeDescription),
             SizedBox(height: 50.0),
-            Ms9Skills(),
+            Ms4Skills(),
           ],
         ),
       ),

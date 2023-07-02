@@ -24,7 +24,7 @@ class ProjectsContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: double.infinity,
+      // width: double.infinity,
       decoration: BoxDecoration(
         color: AppThemeData.cardGrey,
         borderRadius: BorderRadius.circular(10.0),
@@ -39,9 +39,8 @@ class ProjectsContainer extends StatelessWidget {
       ),
       child: Padding(
         padding: const EdgeInsets.all(30.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          crossAxisAlignment: CrossAxisAlignment.start,
+        child: ListView(
+          shrinkWrap: true,
           children: [
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,14 +65,14 @@ class ProjectsContainer extends StatelessWidget {
                 Wrap(
                   direction: Axis.horizontal,
                   alignment: WrapAlignment.spaceBetween,
-                  crossAxisAlignment: WrapCrossAlignment.start,
+                  crossAxisAlignment: WrapCrossAlignment.center,
                   spacing: ResponsiveScreenProvider.isDesktopScreen(context) ? 15 : 0,
                   children: [
-                    Image.asset(img1, height: imgHeight ?? 420,),
-                    Image.asset(img2, height: imgHeight ?? 420,),
-                    Image.asset(img3, height: imgHeight ?? 420,),
-                    Image.asset(img4!, height: imgHeight ?? 420,),
-                    Image.asset(img5!, height: imgHeight ?? 420,),
+                    Image.asset(img1, height: imgHeight ?? 380,),
+                    Image.asset(img2, height: imgHeight ?? 380,),
+                    Image.asset(img3, height: imgHeight ?? 380,),
+                    Image.asset(img4!, height: imgHeight ?? 380,),
+                    Image.asset(img5!, height: imgHeight ?? 380,),
                   ],
                 ),
                 const SizedBox(height: 15,),
