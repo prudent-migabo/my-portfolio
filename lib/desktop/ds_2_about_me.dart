@@ -35,8 +35,8 @@ class DS2AboutMe extends StatelessWidget {
             const SizedBox(height: 20,),
             ButtonTextSmall(
               text: 'Get my resume',
-              message: '',
-              url: DataValues.mesPiecesBusinessUrl,
+              message: DataValues.myResumeLink.toString(),
+              url: DataValues.myResumeLink,
               textStyle: TextStyle(
                 fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
                 fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,

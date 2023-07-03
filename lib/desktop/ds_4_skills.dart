@@ -14,7 +14,7 @@ class Ds4Skills extends StatelessWidget {
   Widget type1(String text){
     return Text(text,
       style: TextStyle(
-          fontSize: AppThemeData.darkTheme.textTheme.titleSmall!.fontSize,
+          fontSize: AppThemeData.darkTheme.textTheme.bodyLarge!.fontSize,
           fontWeight:
           AppThemeData.darkTheme.textTheme.titleSmall!.fontWeight,
           color: AppThemeData.textGreyDark),
@@ -29,136 +29,64 @@ class Ds4Skills extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const FrameTitle(
+          FrameTitleHelper1(
             title: DataValues.skillsTitle,
-            hasDescription: true,
+            description: '',
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 200),
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              children: [
-                Row(
+          GridView.count(
+            shrinkWrap: true,
+            crossAxisSpacing: 15,
+            mainAxisSpacing: 15,
+            crossAxisCount: 2,
+            //childAspectRatio: (MediaQuery.of(context).size.width/(MediaQuery.of(context).size.height / 0.08)),
+            children: <Widget>[
+              SkillsCard(title: DataValues.skillsTitle1,
+                skills: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                        child: SkillsCard(title: DataValues.skillsTitle1,
-                          skills: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              type1('- Dart', ),
-                              type1('- Java'),
-                              type1('- Kotlin'),
-                              type1('- JavaScript'),
-                            ],
-                          ),
-                        ),
-                    ),
-                    const SizedBox(width: 20,),
-                    Expanded(
-                      child:  SkillsCard(
-                        title: DataValues.skillsTitle2,
-                        skills: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            type1('- Flutter'),
-                          ],
-                        ),
-                      ),
-                    ),
+                    type1('- Dart', ),
+                    type1('- Java'),
+                    type1('- Kotlin'),
+                    type1('- JavaScript'),
                   ],
                 ),
-                const SizedBox(height: 20,),
-                Row(
+              ),
+              SkillsCard(
+                title: DataValues.skillsTitle2,
+                skills: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: SkillsCard(title: DataValues.skillsTitle3,
-                        skills: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            type1('- Git'),
-                            type1('- Github'),
-                            type1('- Postman'),
-                            type1('- Vs Code'),
-                            type1('- Android studio'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    const SizedBox(width: 20,),
-                    Expanded(
-                      child:  SkillsCard(
-                        title: DataValues.skillsTitle4,
-                        skills: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            type1('- Teamwork'),
-                            type1('- Communication'),
-                            type1('- Problem solving'),
-                            type1('- Creativity'),
-                            type1('- Time management'),
-                          ],
-                        ),
-                      ),
-                    ),
+                    type1('- Flutter'),
                   ],
                 ),
-              ],
-            ),
-           //  child: GridView.count(
-           //    shrinkWrap: true,
-           //    crossAxisSpacing: 15,
-           //    mainAxisSpacing: 15,
-           //    crossAxisCount: 2,
-           //   //childAspectRatio: 16/5,
-           //    children: <Widget>[
-           //      SkillsCard(title: DataValues.skillsTitle1,
-           //          skills: Column(
-           //            crossAxisAlignment: CrossAxisAlignment.start,
-           //            children: [
-           //              type1('- Dart', ),
-           //              type1('- Java'),
-           //              type1('- Kotlin'),
-           //              type1('- JavaScript'),
-           //            ],
-           //          ),
-           //      ),
-           //      SkillsCard(
-           //        title: DataValues.skillsTitle2,
-           //        skills: Column(
-           //          crossAxisAlignment: CrossAxisAlignment.start,
-           //          children: [
-           //            type1('- Flutter'),
-           //          ],
-           //        ),
-           //      ),
-           //      SkillsCard(
-           //        title: DataValues.skillsTitle3,
-           //        skills: Column(
-           //          crossAxisAlignment: CrossAxisAlignment.start,
-           //          children: [
-           //            type1('- Git'),
-           //            type1('- Github'),
-           //            type1('- Postman'),
-           //            type1('- Vs Code'),
-           //            type1('- Android studio'),
-           //          ],
-           //        ),
-           //      ),
-           //      SkillsCard(
-           //        title: DataValues.skillsTitle4,
-           //        skills: Column(
-           //          crossAxisAlignment: CrossAxisAlignment.start,
-           //          children: [
-           //            type1('- Teamwork'),
-           //            type1('- Communication'),
-           //            type1('- Problem solving'),
-           //            type1('- Creativity'),
-           //            type1('- Time management'),
-           //          ],
-           //        ),
-           //      ),
-           //    ],
-           //  ),
+              ),
+              SkillsCard(
+                title: DataValues.skillsTitle3,
+                skills: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    type1('- Git'),
+                    type1('- Github'),
+                    type1('- Postman'),
+                    type1('- Vs Code'),
+                    type1('- Android studio'),
+                  ],
+                ),
+              ),
+              SkillsCard(
+                title: DataValues.skillsTitle4,
+                skills: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    type1('- Teamwork'),
+                    type1('- Communication'),
+                    type1('- Problem solving'),
+                    type1('- Creativity'),
+                    type1('- Time management'),
+                  ],
+                ),
+              ),
+            ],
           ),
         ],
       ),
@@ -168,21 +96,20 @@ class Ds4Skills extends StatelessWidget {
 
 
 class SkillsCard extends StatelessWidget {
-   SkillsCard({
+  SkillsCard({
     super.key,
-     required this.title,
-     required this.skills,
+    required this.title,
+    required this.skills,
 
   });
-   String title;
-   Widget skills;
+  String title;
+  Widget skills;
 
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 250,
-      padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 30),
+      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
         color: AppThemeData.cardGrey,
         borderRadius: BorderRadius.circular(10.0),
@@ -196,7 +123,6 @@ class SkillsCard extends StatelessWidget {
         ],
       ),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(title,
             style: TextStyle(
@@ -207,7 +133,7 @@ class SkillsCard extends StatelessWidget {
               color: AppThemeData.textWhite,
             ),
           ),
-          const SizedBox(height: 15,),
+          const SizedBox(height: 10,),
           skills,
         ],
       ),

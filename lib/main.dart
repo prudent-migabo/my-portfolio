@@ -1,6 +1,7 @@
 import 'package:portfolio_clean/desktop/ds_4_skills.dart';
 import 'package:flutter/material.dart';
 
+import 'mobile/ms_4_skills.dart';
 import 'statics/constants.dart';
 import 'theme/responsive_screen_provider.dart';
 import 'theme/app_theme.dart';
@@ -56,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               } else {
                 _showBackToTopButton = false;
               }
-              if (_scrollController.offset >= 600){
+              if (ResponsiveScreenProvider.isDesktopScreen(context) ? _scrollController.offset >= 650 : _scrollController.offset >= 400){
                 _canCarouselScroll = true;
               } else{
                 _canCarouselScroll = false;
@@ -88,13 +89,13 @@ class _HomePageState extends State<HomePage> {
         physics: const ClampingScrollPhysics(),
         children: [
           const DS1Header(),
-          sectionSpacer,
+          dsSectionSpacer,
           const DS2AboutMe(),
-          sectionSpacer,
+          dsSectionSpacer,
           DS3Projects(canCarouselScroll: _canCarouselScroll,),
-          sectionSpacer,
+          dsSectionSpacer,
           const Ds4Skills(),
-          sectionSpacer,
+          dsSectionSpacer,
           const DS5Contact(),
         ],
       );
@@ -104,11 +105,16 @@ class _HomePageState extends State<HomePage> {
       return ListView(
         shrinkWrap: true,
         physics: const ClampingScrollPhysics(),
-        children: const [
-          MS1Header(),
-          MS2AboutMe(),
-          MS3Projects(),
-          MS5Contact(),
+        children: [
+          const MS1Header(),
+          msSectionSpacer,
+          const MS2AboutMe(),
+          msSectionSpacer,
+          MS3Projects(canCarouselScroll: _canCarouselScroll),
+          msSectionSpacer,
+          const Ms4Skills(),
+          msSectionSpacer,
+          const MS5Contact(),
         ],
       );
     }

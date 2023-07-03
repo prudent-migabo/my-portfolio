@@ -23,6 +23,7 @@ class Ms4Skills extends StatelessWidget {
     return Container(
       key: KeyHolders.skillsKey,
       color: AppThemeData.backgroundGrey,
+      margin: const EdgeInsets.symmetric(horizontal: 10),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -30,12 +31,43 @@ class Ms4Skills extends StatelessWidget {
             title: DataValues.skillsTitle,
             description: '',
           ),
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //   children: [
+          //     Expanded(
+          //       child: SkillsCard(title: DataValues.skillsTitle1,
+          //         skills: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             type1('- Dart', ),
+          //             type1('- Java'),
+          //             type1('- Kotlin'),
+          //             type1('- JavaScript'),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //     const SizedBox(width: 10,),
+          //     Expanded(
+          //       child: SkillsCard(
+          //         title: DataValues.skillsTitle2,
+          //         skills: Column(
+          //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           children: [
+          //             type1('- Flutter'),
+          //           ],
+          //         ),
+          //       ),
+          //     ),
+          //   ],
+          // ),
+
           GridView.count(
             shrinkWrap: true,
-            crossAxisSpacing: 15,
-            mainAxisSpacing: 15,
+            crossAxisSpacing: 5,
+            mainAxisSpacing: 5,
             crossAxisCount: 2,
-            //childAspectRatio: (MediaQuery.of(context).size.width/(MediaQuery.of(context).size.height / 0.08)),
+            childAspectRatio: 16/20,
             children: <Widget>[
               SkillsCard(title: DataValues.skillsTitle1,
                 skills: Column(
@@ -105,7 +137,8 @@ class SkillsCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+      padding: const EdgeInsets.only(top: 20, left: 20, right: 5, bottom: 20),
+      //padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
       decoration: BoxDecoration(
         color: AppThemeData.cardGrey,
         borderRadius: BorderRadius.circular(10.0),
@@ -118,7 +151,9 @@ class SkillsCard extends StatelessWidget {
           ),
         ],
       ),
-      child: Column(
+      child: ListView(
+        shrinkWrap: true,
+        physics: const NeverScrollableScrollPhysics(),
         children: [
           Text(title,
             style: TextStyle(

@@ -10,6 +10,7 @@ class MS1Header extends StatelessWidget {
   List<Widget> headerData() {
     return [
       Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SelectableText(
             DataValues.headerGreetings,
@@ -26,6 +27,7 @@ class MS1Header extends StatelessWidget {
           ),
           const SizedBox(height: 20.0),
           const SocialProfiles(),
+          const SizedBox(height: 20.0),
         ],
       ),
     ];
@@ -36,15 +38,9 @@ class MS1Header extends StatelessWidget {
     return Container(
       color: AppThemeData.backgroundBlack,
       child: Padding(
-          padding: const EdgeInsets.only(bottom: 40.0),
+          padding: const EdgeInsets.symmetric(horizontal: 50.0, vertical: 10.0),
           child: Column(
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: headerData(),
-              ),
-              const SizedBox(height: 40.0),
-            ],
+            children: headerData(),
           )),
     );
   }

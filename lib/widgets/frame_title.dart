@@ -20,7 +20,7 @@ class FrameTitle extends StatelessWidget {
             title,
             style: Theme.of(context).textTheme.displaySmall,
           ),
-          hasDescription! ? const SizedBox(height: 20,) : const SizedBox(height: 0,),
+          hasDescription! ? const SizedBox(height: 20,) : const SizedBox(height: 10,),
           SelectableText(
             description ?? '',
             style: Theme.of(context).textTheme.titleSmall,

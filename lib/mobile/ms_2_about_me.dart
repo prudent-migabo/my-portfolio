@@ -18,16 +18,26 @@ class MS2AboutMe extends StatelessWidget {
     return Container(
       key: KeyHolders.aboutKey,
       color: AppThemeData.backgroundGrey,
-      child: Padding(
-        padding: const EdgeInsets.all(40.0),
+      child:  Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 30.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
-          children: const [
-            FrameTitle(
+          children: [
+            const FrameTitle(
                 title: DataValues.aboutMeTitle,
+                hasDescription: false,
                 description: DataValues.aboutMeDescription),
-            SizedBox(height: 50.0),
-            Ms4Skills(),
+            const SizedBox(height: 20,),
+            ButtonTextSmall(
+              text: 'Get my resume',
+              message: DataValues.myResumeLink.toString(),
+              url: DataValues.myResumeLink,
+              textStyle: TextStyle(
+                fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
+                fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,
+                color: AppThemeData.primaryColor,
+              ),
+            ),
           ],
         ),
       ),

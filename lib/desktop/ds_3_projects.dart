@@ -20,11 +20,12 @@ class DS3Projects extends StatelessWidget {
    bool? canCarouselScroll = false;
 
   final List<Widget> items = [
-     ProjectsContainer(
+    ProjectsContainer(
       projectName: DataValues.experienceOrg1Title,
       technologies: DataValues.experience1Description,
       experienceDescription: DataValues.experienceOrg1Description,
-      url: DataValues.mesPiecesClientURL,
+      playStoreUrl: DataValues.mesPiecesClientURL,
+      previewUrl: DataValues.mesPiecesClientPreviewUrl,
       isDeployed: true,
       img1: Assets.exp1Img1,
       img2: Assets.exp1Img2,
@@ -36,7 +37,8 @@ class DS3Projects extends StatelessWidget {
       projectName: DataValues.experienceOrg2Title,
       technologies: DataValues.experience2Description,
       experienceDescription: DataValues.experienceOrg2Description,
-      url: DataValues.mesPiecesBusinessUrl,
+      playStoreUrl: DataValues.mesPiecesBusinessUrl,
+      previewUrl: DataValues.mesPiecesBusinessPreviewUrl,
       isDeployed: true,
       img1: Assets.exp2Img1,
       img2: Assets.exp2Img2,
@@ -44,29 +46,31 @@ class DS3Projects extends StatelessWidget {
       img4: Assets.exp2Img4,
       img5: Assets.exp2Img5,
     ),
-     const ProjectsContainer(
-      projectName: DataValues.experienceOrg4Title,
-      technologies: DataValues.experience4Description,
-      experienceDescription: DataValues.experienceOrg4Description,
-      url: null,
-      isDeployed: false,
-      img1: Assets.exp4Img1,
-      img2: Assets.exp4Img2,
-      img3: Assets.exp4Img3,
-      img4: Assets.exp4Img4,
-      img5: Assets.exp4Img5,
-    ),
-     const ProjectsContainer(
+    ProjectsContainer(
       projectName: DataValues.experienceOrg3Title,
       technologies: DataValues.experience3Description,
       experienceDescription: DataValues.experienceOrg3Description,
-      url: null,
+      playStoreUrl: null,
+      previewUrl: DataValues.xCookerPreviewUrl,
       isDeployed: false,
       img1: Assets.exp3Img1,
       img2: Assets.exp3Img2,
       img3: Assets.exp3Img3,
       img4: Assets.exp3Img4,
       img5: Assets.exp3Img5,
+    ),
+    ProjectsContainer(
+      projectName: DataValues.experienceOrg4Title,
+      technologies: DataValues.experience4Description,
+      experienceDescription: DataValues.experienceOrg4Description,
+      playStoreUrl: null,
+      previewUrl: DataValues.xCookerPreviewUrl,
+      isDeployed: false,
+      img1: Assets.exp4Img1,
+      img2: Assets.exp4Img2,
+      img3: Assets.exp4Img3,
+      img4: Assets.exp4Img4,
+      img5: Assets.exp4Img5,
     ),
   ];
 
@@ -87,7 +91,7 @@ class DS3Projects extends StatelessWidget {
             CarouselSlider(
                 items: items,
                 options: CarouselOptions(
-                  height: 680,
+                  height: 700,
                   aspectRatio: 16/9,
                   viewportFraction: 1,
                   enableInfiniteScroll: true,

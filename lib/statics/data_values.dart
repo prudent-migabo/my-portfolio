@@ -11,6 +11,10 @@ class DataValues {
   static Uri facebookURL = Uri.parse('https://web.facebook.com/prudent.migabo.3');
   static Uri mesPiecesClientURL = Uri.parse('https://play.google.com/store/apps/details?id=com.techyahead.expoin');
   static Uri mesPiecesBusinessUrl = Uri.parse('https://play.google.com/store/apps/details?id=com.techyahead.expoinbusiness.mes_pieces_business');
+  static Uri myResumeLink = Uri.parse('https://drive.google.com/file/d/1UUR0sZeg5J33jJ9W49sla7YKBGu40T81/view?usp=sharing');
+  static Uri xCookerPreviewUrl = Uri.parse('https://drive.google.com/file/d/1-Ie6ktkslgZrPxbo6nvSub6pXq0_1gfQ/view?usp=sharing');
+  static Uri mesPiecesClientPreviewUrl = Uri.parse('https://drive.google.com/file/d/1RJK5I-cuvNGWzjiWiQXZyEjvwBVpYMaQ/view?usp=sharing');
+  static Uri mesPiecesBusinessPreviewUrl = Uri.parse('https://drive.google.com/file/d/1DuPWZ-dw0tMWUE3-qLjyYksWISj116F1/view?usp=sharing');
 
   // Header
   static const String headerGreetings = 'Hello! I\'m';
@@ -49,18 +53,19 @@ class DataValues {
   static const String experienceOrg2Description =
       "MES Pieces Business is the market place, it's in charge of providing to clients services including the purchase, sale, swap and payment of CRYPTOGRAPHIC Services";
 
-  static const String experienceOrg3Title = 'ADA to Mobile';
-  static const String experience3Description = 'Flutter | Firebase | Provider | RestAPIs | Hive | SharedPreferences';
+  static const String experienceOrg3Title = 'XCooker';
+  static const String experience3Description = 'Flutter | Bloc | RestAPIs | Hive | SharedPreferences';
   static const String experienceOrg3Description =
-      "ADA to Mobile is a mobile application that allows the exchange of ADA cryptocurrencies received in a local currency from anywhere and the opposite, in Africa.";
-
-  static const String experienceOrg4Title = 'XCooker';
-  static const String experience4Description = 'Flutter | Bloc | RestAPIs | Hive | SharedPreferences';
-  static const String experienceOrg4Description =
       "XCooker is an IoT(Internet of Things) mobile application based, it is an application that controls an induction cooker, with XCooker the user can: \n"
       "- Change the temperature of plaques.\n"
       "- Use a timer to automatically limit the cooking time.\n"
       "- Add a cooking mode.";
+
+  static const String experienceOrg4Title = 'ADA to Mobile';
+  static const String experience4Description = 'Flutter | Firebase | Provider | RestAPIs | Hive | SharedPreferences';
+  static const String experienceOrg4Description =
+      "ADA to Mobile is a mobile application that allows the exchange of ADA cryptocurrencies received in a local currency from anywhere and the opposite, in Africa.";
+
 
   //Skills
   static const String skillsTitle = 'Skills';

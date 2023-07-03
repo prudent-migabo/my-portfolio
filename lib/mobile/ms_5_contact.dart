@@ -19,16 +19,14 @@ class MS5Contact extends StatelessWidget {
       color: AppThemeData.backgroundGrey,
       child: Column(
         children: [
-          const SizedBox(
-            height: 40.0,
-          ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 40.0),
             child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 const FrameTitle(
                     title: DataValues.contactTitle,
+                    hasDescription: false,
                     description: DataValues.contactDescription),
                 const SizedBox(height: 30.0),
                 SelectableText(DataValues.contactBanner,
@@ -74,8 +72,8 @@ class MS5Contact extends StatelessWidget {
                 const SizedBox(height: 20,),
                 ButtonTextSmall(
                   text: 'Get my resume',
-                  message: '',
-                  url: DataValues.mesPiecesBusinessUrl,
+                  message: DataValues.myResumeLink.toString(),
+                  url: DataValues.myResumeLink,
                   textStyle: TextStyle(
                     fontSize: AppThemeData.darkTheme.textTheme.titleMedium!.fontSize,
                     fontWeight: AppThemeData.darkTheme.textTheme.headlineSmall!.fontWeight,
@@ -89,6 +87,9 @@ class MS5Contact extends StatelessWidget {
             height: 40.0,
           ),
           const SocialProfiles(),
+          const SizedBox(
+            height: 30.0,
+          ),
         ],
       ),
     );

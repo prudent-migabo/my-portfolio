@@ -32,12 +32,6 @@ class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
     super.initState();
   }
 
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   List<Widget> headerData() {
     return [
       Column(
