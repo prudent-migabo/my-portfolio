@@ -57,7 +57,7 @@ class _HomePageState extends State<HomePage> {
               } else {
                 _showBackToTopButton = false;
               }
-              if (ResponsiveScreenProvider.isDesktopScreen(context) ? _scrollController.offset >= 650 : _scrollController.offset >= 400){
+              if (ResponsiveScreenProvider.isDesktopScreen(context) ? _scrollController.offset >= 500 : _scrollController.offset >= 400){
                 _canCarouselScroll = true;
               } else{
                 _canCarouselScroll = false;

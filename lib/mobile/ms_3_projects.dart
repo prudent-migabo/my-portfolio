@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_clean/widgets/frame_title_helper1.dart';
 
@@ -12,10 +13,18 @@ import '../widgets/container_banner.dart';
 import '../widgets/frame_title.dart';
 import '../widgets/projects_container.dart';
 
-class MS3Projects extends StatelessWidget {
+class MS3Projects extends StatefulWidget {
    MS3Projects({Key? key, this.canCarouselScroll}) : super(key: key);
 
     bool? canCarouselScroll = false;
+
+  @override
+  State<MS3Projects> createState() => _MS3ProjectsState();
+}
+
+class _MS3ProjectsState extends State<MS3Projects> {
+  CarouselController controller = CarouselController();
+  int currentIndex = 0;
 
   final List<Widget> items = [
     ProjectsContainer(
@@ -86,17 +95,47 @@ class MS3Projects extends StatelessWidget {
             hasDescription: false,
           ),
           CarouselSlider(
+            carouselController: controller,
             items: items,
             options: CarouselOptions(
               height: 1050,
               aspectRatio: 1,
               viewportFraction: 1,
               enableInfiniteScroll: true,
-              autoPlay: canCarouselScroll! ? true : false,
+              autoPlay: widget.canCarouselScroll! ? true : false,
               autoPlayInterval: const Duration(seconds: 7),
               autoPlayAnimationDuration: const Duration(seconds: 3),
               autoPlayCurve: Curves.fastOutSlowIn,
               enlargeCenterPage: true,
+              onPageChanged: (index, _){
+                setState(() {
+                  currentIndex = index;
+                });
+              },
+            ),
+          ),
+          const SizedBox(height: 15,),
+          Center(
+            child: DotsIndicator(
+              dotsCount: items.length,
+              position: currentIndex,
+              decorator: const DotsDecorator(
+                  color: AppThemeData.textCursor,
+                  activeColor: AppThemeData.primaryColor,
+                  sizes: [
+                    Size.square(10.0),
+                    Size.square(10.0),
+                    Size.square(10.0),
+                    Size.square(10.0),
+                  ],
+                  activeSizes: [
+                    Size.square(15.0),
+                    Size.square(15.0),
+                    Size.square(15.0),
+                    Size.square(15.0),
+                  ],
+                  spacing: EdgeInsets.all(10.0)
+              ),
             ),
           ),
         ],

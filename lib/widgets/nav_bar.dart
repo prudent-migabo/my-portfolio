@@ -53,6 +53,7 @@ class NavBar {
   Widget mobileNavBar() {
     Widget miniHeader() {
       return Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SelectableText(
             DataValues.headerName,

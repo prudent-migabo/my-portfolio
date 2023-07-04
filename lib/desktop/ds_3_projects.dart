@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio_clean/statics/constants.dart';
 
@@ -14,10 +15,18 @@ import '../widgets/frame_title_helper1.dart';
 import '../widgets/projects_container.dart';
 import 'ds_4_skills.dart';
 
-class DS3Projects extends StatelessWidget {
+class DS3Projects extends StatefulWidget {
    DS3Projects({Key? key, this.canCarouselScroll}) : super(key: key);
 
    bool? canCarouselScroll = false;
+
+  @override
+  State<DS3Projects> createState() => _DS3ProjectsState();
+}
+
+class _DS3ProjectsState extends State<DS3Projects> {
+   CarouselController controller = CarouselController();
+   int currentIndex = 0;
 
   final List<Widget> items = [
     ProjectsContainer(
@@ -89,18 +98,48 @@ class DS3Projects extends StatelessWidget {
               hasDescription: true,
             ),
             CarouselSlider(
+              carouselController: controller,
                 items: items,
                 options: CarouselOptions(
                   height: 700,
                   aspectRatio: 16/9,
                   viewportFraction: 1,
                   enableInfiniteScroll: true,
-                  autoPlay: canCarouselScroll! ? true : false,
+                  onPageChanged: (index, _){
+                    setState(() {
+                      currentIndex = index;
+                    });
+                  },
+                  autoPlay: widget.canCarouselScroll! ? true : false,
                   autoPlayInterval: const Duration(seconds: 7),
                   autoPlayAnimationDuration: const Duration(seconds: 3),
                   autoPlayCurve: Curves.fastOutSlowIn,
                   enlargeCenterPage: true,
                 ),
+            ),
+            const SizedBox(height: 20,),
+            Center(
+              child: DotsIndicator(
+                dotsCount: items.length,
+                position: currentIndex,
+                decorator: const DotsDecorator(
+                  color: AppThemeData.textCursor,
+                  activeColor: AppThemeData.primaryColor,
+                  sizes: [
+                    Size.square(15.0),
+                    Size.square(15.0),
+                    Size.square(15.0),
+                    Size.square(15.0),
+                  ],
+                  activeSizes: [
+                    Size.square(20.0),
+                    Size.square(20.0),
+                    Size.square(20.0),
+                    Size.square(20.0),
+                  ],
+                    spacing: EdgeInsets.all(10.0)
+                ),
+              ),
             ),
           ],
         ),
