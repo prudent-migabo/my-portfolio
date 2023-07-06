@@ -53,7 +53,7 @@ class _MS1HeaderState extends State<MS1Header> with TickerProviderStateMixin {
   ));
 
   late final Animation<Offset> _offsetDescriptionAnimation = Tween<Offset>(
-    begin: const Offset(0.0, -1),
+    begin: const Offset(0.0, -2),
     end: Offset.zero,
   ).animate(CurvedAnimation(
     parent: _controller2,
