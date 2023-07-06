@@ -59,8 +59,7 @@ class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
   ).animate(CurvedAnimation(
     parent: _controller2,
     curve: Curves.fastOutSlowIn,
-  )
-  );
+  ),);
 
 
   List<Widget> headerData() {

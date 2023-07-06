@@ -43,7 +43,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   bool _showBackToTopButton = false;
   bool _canCarouselScroll = false;
-  bool _canAboutMeDescriptionCome = false;
   late ScrollController _scrollController;
 
   @override
@@ -63,12 +62,6 @@ class _HomePageState extends State<HomePage> {
 
               } else{
                 _canCarouselScroll = false;
-              }
-              if (ResponsiveScreenProvider.isDesktopScreen(context) ? _scrollController.offset >= 150 : _scrollController.offset >= 400){
-                //print ("00000000000000000000000000000000000000000000000000000000000000 $_canAboutMeDescriptionCome");
-                _canAboutMeDescriptionCome = true;
-              } else{
-                _canAboutMeDescriptionCome = false;
               }
             },
           );
@@ -98,7 +91,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           const DS1Header(),
           const SizedBox(height: 80,),
-          DS2AboutMe(canAboutMeDescriptionCome: _canAboutMeDescriptionCome,),
+          const DS2AboutMe(),
           dsSectionSpacer,
           DS3Projects(canCarouselScroll: _canCarouselScroll,),
           dsSectionSpacer,

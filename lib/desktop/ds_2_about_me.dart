@@ -14,10 +14,7 @@ import '../widgets/container_banner.dart';
 import '../widgets/frame_title.dart';
 
 class DS2AboutMe extends StatefulWidget {
-   DS2AboutMe({Key? key, required this.canAboutMeDescriptionCome}) : super(key: key);
-
-   bool canAboutMeDescriptionCome;
-
+   const DS2AboutMe({Key? key}) : super(key: key);
 
   @override
   State<DS2AboutMe> createState() => _DS2AboutMeState();
@@ -57,7 +54,6 @@ class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    // print ('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ${widget.canAboutMeDescriptionCome}');
     return Container(
       key: KeyHolders.aboutKey,
       color: AppThemeData.backgroundGrey,
@@ -66,12 +62,6 @@ class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateM
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            // const FrameTitle(
-            //   title: DataValues.aboutMeTitle,
-            //   description: DataValues.aboutMeDescription,
-            //   hasDescription: true,
-            //
-            // ),
             Center(
               child: Column(
                 children: [
