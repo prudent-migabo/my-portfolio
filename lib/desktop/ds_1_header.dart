@@ -14,24 +14,34 @@ class DS1Header extends StatefulWidget {
 
 class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
 
-  late final AnimationController _controller = AnimationController(
+  late final AnimationController _controller1 = AnimationController(
+    vsync: this,
+    duration: const Duration(seconds: 4),
+  );
+  late final AnimationController _controller2 = AnimationController(
     vsync: this,
     duration: const Duration(seconds: 4),
   );
 
   @override
   void initState() {
-    repeatOnce();
+    repeatTitleOnce();
+    repeatDescriptionOnce();
     super.initState();
   }
 
-  void repeatOnce() async {
-    await _controller.forward();
+  void repeatTitleOnce() async {
+    await _controller1.forward();
+  }
+
+  void repeatDescriptionOnce() async {
+    await _controller2.forward();
   }
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller1.dispose();
+    _controller2.dispose();
     super.dispose();
   }
 
@@ -39,9 +49,18 @@ class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
     begin: const Offset(-5, 0.0),
     end: Offset.zero,
   ).animate(CurvedAnimation(
-    parent: _controller,
+    parent: _controller1,
     curve: Curves.fastOutSlowIn,
   ));
+
+  late final Animation<Offset> _offsetDescriptionAnimation = Tween<Offset>(
+    begin: const Offset(0.0, -3),
+    end: Offset.zero,
+  ).animate(CurvedAnimation(
+    parent: _controller2,
+    curve: Curves.fastOutSlowIn,
+  )
+  );
 
 
   List<Widget> headerData() {
@@ -59,9 +78,12 @@ class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
               style: AppThemeData.darkTheme.textTheme.displayMedium,
             ),
           ),
-          SelectableText(
-            DataValues.headerTitle,
-            style: AppThemeData.darkTheme.textTheme.titleLarge,
+          SlideTransition(
+            position: _offsetDescriptionAnimation,
+            child: SelectableText(
+              DataValues.headerTitle,
+              style: AppThemeData.darkTheme.textTheme.titleLarge,
+            ),
           ),
           const SizedBox(height: 20.0),
           const SocialProfiles(),

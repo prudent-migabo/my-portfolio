@@ -12,21 +12,22 @@ dependencies:
   flutter:
     sdk: flutter
 
-
   cupertino_icons: ^1.0.2
   url_launcher: ^6.1.9
-  flutter_native_splash: ^2.2.17
   carousel_slider:
   dots_indicator:
-
-flutter_native_splash:
-  color: "#121212"
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   flutter_lints: ^2.0.0
+  flutter_native_splash:
+
+flutter_native_splash:
+  color: '#000000'
+  image: 'assets/images/splash.PNG'
+  android: true
+  ios: true
 
 
 flutter:

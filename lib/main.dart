@@ -97,7 +97,7 @@ class _HomePageState extends State<HomePage> {
         physics: const ClampingScrollPhysics(),
         children: [
           const DS1Header(),
-          dsSectionSpacer,
+          const SizedBox(height: 80,),
           DS2AboutMe(canAboutMeDescriptionCome: _canAboutMeDescriptionCome,),
           dsSectionSpacer,
           DS3Projects(canCarouselScroll: _canCarouselScroll,),

@@ -27,7 +27,7 @@ class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateM
 
    late final AnimationController _controller = AnimationController(
      vsync: this,
-     duration: const Duration(seconds: 6),
+     duration: const Duration(seconds: 5),
    );
 
   @override
@@ -57,7 +57,7 @@ class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
-    print ('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ${widget.canAboutMeDescriptionCome}');
+    // print ('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ${widget.canAboutMeDescriptionCome}');
     return Container(
       key: KeyHolders.aboutKey,
       color: AppThemeData.backgroundGrey,
