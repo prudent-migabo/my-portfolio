@@ -13,11 +13,51 @@ import '../widgets/container_card.dart';
 import '../widgets/container_banner.dart';
 import '../widgets/frame_title.dart';
 
-class DS2AboutMe extends StatelessWidget {
-  const DS2AboutMe({Key? key}) : super(key: key);
+class DS2AboutMe extends StatefulWidget {
+   DS2AboutMe({Key? key, required this.canAboutMeDescriptionCome}) : super(key: key);
+
+   bool canAboutMeDescriptionCome;
+
+
+  @override
+  State<DS2AboutMe> createState() => _DS2AboutMeState();
+}
+
+class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateMixin {
+
+   late final AnimationController _controller = AnimationController(
+     vsync: this,
+     duration: const Duration(seconds: 6),
+   );
+
+  @override
+  void initState() {
+     repeatOnce();
+    super.initState();
+  }
+
+  void repeatOnce() async {
+   await _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: const Offset(5, 0.0),
+    end: Offset.zero,
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.fastOutSlowIn,
+  ));
+
 
   @override
   Widget build(BuildContext context) {
+    print ('||||||||||||||||||||||||||||||||||||||||||||||||||||||||||| ${widget.canAboutMeDescriptionCome}');
     return Container(
       key: KeyHolders.aboutKey,
       color: AppThemeData.backgroundGrey,
@@ -26,11 +66,29 @@ class DS2AboutMe extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const FrameTitle(
-              title: DataValues.aboutMeTitle,
-              description: DataValues.aboutMeDescription,
-              hasDescription: true,
-
+            // const FrameTitle(
+            //   title: DataValues.aboutMeTitle,
+            //   description: DataValues.aboutMeDescription,
+            //   hasDescription: true,
+            //
+            // ),
+            Center(
+              child: Column(
+                children: [
+                  SelectableText(
+                    DataValues.aboutMeTitle,
+                    style: Theme.of(context).textTheme.displaySmall,
+                  ),
+                  const SizedBox(height: 20,),
+                  SlideTransition(
+                    position: _offsetAnimation,
+                    child: SelectableText(
+                      DataValues.aboutMeDescription,
+                      style: Theme.of(context).textTheme.titleSmall,
+                    ),
+                  ),
+                ],
+              ),
             ),
             const SizedBox(height: 20,),
             ButtonTextSmall(

@@ -15,22 +15,34 @@ class DS1Header extends StatefulWidget {
 class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
 
   late final AnimationController _controller = AnimationController(
-    duration: const Duration(seconds: 5),
     vsync: this,
-  )..repeat();
-
-  late final Animation<double> _animation = CurvedAnimation(
-    parent: _controller,
-    curve: Curves.fastOutSlowIn,
+    duration: const Duration(seconds: 4),
   );
 
   @override
   void initState() {
-    Future.delayed(const Duration(milliseconds: 5050), (){
-      _controller.dispose();
-    });
+    repeatOnce();
     super.initState();
   }
+
+  void repeatOnce() async {
+    await _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  late final Animation<Offset> _offsetAnimation = Tween<Offset>(
+    begin: const Offset(-5, 0.0),
+    end: Offset.zero,
+  ).animate(CurvedAnimation(
+    parent: _controller,
+    curve: Curves.fastOutSlowIn,
+  ));
+
 
   List<Widget> headerData() {
     return [
@@ -40,10 +52,8 @@ class _DS1HeaderState extends State<DS1Header> with TickerProviderStateMixin{
             DataValues.headerGreetings,
             style: AppThemeData.darkTheme.textTheme.headlineSmall,
           ),
-          SizeTransition(
-            sizeFactor: _animation,
-            axis: Axis.horizontal,
-            axisAlignment: 1,
+          SlideTransition(
+            position: _offsetAnimation,
             child: SelectableText(
               DataValues.headerName,
               style: AppThemeData.darkTheme.textTheme.displayMedium,
