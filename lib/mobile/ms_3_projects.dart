@@ -38,7 +38,6 @@ class _MS3ProjectsState extends State<MS3Projects> {
       img2: Assets.exp1Img2,
       img3: Assets.exp1Img3,
       img4: Assets.exp1Img4,
-      img5: Assets.exp1Img5,
     ),
     ProjectsContainer(
       projectName: DataValues.experienceOrg2Title,
@@ -51,20 +50,18 @@ class _MS3ProjectsState extends State<MS3Projects> {
       img2: Assets.exp2Img2,
       img3: Assets.exp2Img3,
       img4: Assets.exp2Img4,
-      img5: Assets.exp2Img5,
     ),
     ProjectsContainer(
       projectName: DataValues.experienceOrg3Title,
       technologies: DataValues.experience3Description,
       experienceDescription: DataValues.experienceOrg3Description,
       playStoreUrl: null,
-      previewUrl: DataValues.xCookerPreviewUrl,
+      previewUrl: DataValues.adaToMobileUrl,
       isDeployed: false,
       img1: Assets.exp3Img1,
       img2: Assets.exp3Img2,
       img3: Assets.exp3Img3,
       img4: Assets.exp3Img4,
-      img5: Assets.exp3Img5,
     ),
     ProjectsContainer(
       projectName: DataValues.experienceOrg4Title,
@@ -77,7 +74,6 @@ class _MS3ProjectsState extends State<MS3Projects> {
       img2: Assets.exp4Img2,
       img3: Assets.exp4Img3,
       img4: Assets.exp4Img4,
-      img5: Assets.exp4Img5,
     ),
   ];
 
@@ -98,9 +94,9 @@ class _MS3ProjectsState extends State<MS3Projects> {
             carouselController: controller,
             items: items,
             options: CarouselOptions(
-              height: 1050,
-              aspectRatio: 1,
-              viewportFraction: 1,
+              // height: 1050,
+              // aspectRatio: 1,
+              viewportFraction: 0.7,
               enableInfiniteScroll: true,
               autoPlay: widget.canCarouselScroll! ? true : false,
               autoPlayInterval: const Duration(seconds: 7),

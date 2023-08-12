@@ -15,6 +15,7 @@ class DataValues {
   static Uri xCookerPreviewUrl = Uri.parse('https://drive.google.com/file/d/1-Ie6ktkslgZrPxbo6nvSub6pXq0_1gfQ/view?usp=sharing');
   static Uri mesPiecesClientPreviewUrl = Uri.parse('https://drive.google.com/file/d/1RJK5I-cuvNGWzjiWiQXZyEjvwBVpYMaQ/view?usp=sharing');
   static Uri mesPiecesBusinessPreviewUrl = Uri.parse('https://drive.google.com/file/d/1DuPWZ-dw0tMWUE3-qLjyYksWISj116F1/view?usp=sharing');
+  static Uri adaToMobileUrl = Uri.parse('https://drive.google.com/file/d/1E_hUXbzGfHY63hOhvES-UMKOeFJMgF-p/view?usp=sharing');
 
   // Header
   static const String headerGreetings = 'Hello! I\'m';

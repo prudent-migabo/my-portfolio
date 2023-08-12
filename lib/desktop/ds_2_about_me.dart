@@ -58,7 +58,7 @@ class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateM
       key: KeyHolders.aboutKey,
       color: AppThemeData.backgroundGrey,
       child: Padding(
-        padding: responsivePaddingFixedValue,
+        padding: responsivePaddingFixedValue.copyWith(left: MediaQuery.of(context).size.height /1.9, right: MediaQuery.of(context).size.height /1.9),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -67,6 +67,7 @@ class _DS2AboutMeState extends State<DS2AboutMe> with SingleTickerProviderStateM
                 children: [
                   SelectableText(
                     DataValues.aboutMeTitle,
+                    textAlign: TextAlign.justify,
                     style: Theme.of(context).textTheme.displaySmall,
                   ),
                   const SizedBox(height: 20,),

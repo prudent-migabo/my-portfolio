@@ -19,7 +19,7 @@ class DS5Contact extends StatelessWidget {
       key: KeyHolders.contactKey,
       color: AppThemeData.backgroundGrey,
       child: Padding(
-        padding: responsivePaddingFixedValue,
+        padding: responsivePaddingFixedValue.copyWith(right: MediaQuery.of(context).size.height/1.9, left: MediaQuery.of(context).size.height/1.9),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
@@ -33,6 +33,7 @@ class DS5Contact extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SelectableText(DataValues.contactBanner,
+                    textAlign: TextAlign.justify,
                     style: TextStyle(
                       fontSize: AppThemeData
                           .darkTheme.textTheme.titleMedium!.fontSize,

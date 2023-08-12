@@ -5,8 +5,8 @@ import '../theme/app_theme.dart';
 import 'button_text.dart';
 
 class ProjectsContainer extends StatelessWidget {
-    ProjectsContainer({
-    super.key, required this.projectName, required this.img1, required this.img2, required this.img3, this.img4, this.img5, this.imgHeight, required this.experienceDescription, required this.isDeployed, this.playStoreUrl, required this.technologies, this.previewUrl,
+    const ProjectsContainer({
+    super.key, required this.projectName, required this.img1, required this.img2, required this.img3, this.imgHeight, required this.experienceDescription, required this.isDeployed, this.playStoreUrl, required this.technologies, this.previewUrl, required this.img4,
   });
 
   final String projectName;
@@ -14,8 +14,7 @@ class ProjectsContainer extends StatelessWidget {
   final String img1;
   final String img2;
   final String img3;
-  final String? img4;
-  final String? img5;
+  final String img4;
   final double? imgHeight;
   final String experienceDescription;
   final bool isDeployed;
@@ -23,8 +22,8 @@ class ProjectsContainer extends StatelessWidget {
   final Uri? previewUrl;
 
 
-  double dsImageHeight = 380;
-  double msImageHeight = 230;
+  final double dsImageHeight = 380;
+  final double msImageHeight = 230;
 
   @override
   Widget build(BuildContext context) {
@@ -77,8 +76,7 @@ class ProjectsContainer extends StatelessWidget {
                     Image.asset(img1, height: dsImageHeight),
                     Image.asset(img2, height: dsImageHeight),
                     Image.asset(img3, height: dsImageHeight),
-                    Image.asset(img4!, height: dsImageHeight),
-                    Image.asset(img5!, height: dsImageHeight),
+                    Image.asset(img4 ?? '', height: dsImageHeight),
                   ],
                 ) : Wrap(
                   direction: Axis.horizontal,
@@ -88,8 +86,7 @@ class ProjectsContainer extends StatelessWidget {
                     Image.asset(img1, height: msImageHeight),
                     Image.asset(img2, height: msImageHeight),
                     Image.asset(img3, height: msImageHeight),
-                    Image.asset(img4!, height: msImageHeight),
-                    Image.asset(img5!, height: msImageHeight),
+                    Image.asset(img4, height: msImageHeight),
                   ],
                 ),
                 const SizedBox(height: 15,),

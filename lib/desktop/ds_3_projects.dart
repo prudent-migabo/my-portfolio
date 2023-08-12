@@ -40,7 +40,6 @@ class _DS3ProjectsState extends State<DS3Projects> {
       img2: Assets.exp1Img2,
       img3: Assets.exp1Img3,
       img4: Assets.exp1Img4,
-      img5: Assets.exp1Img5,
     ),
     ProjectsContainer(
       projectName: DataValues.experienceOrg2Title,
@@ -53,7 +52,6 @@ class _DS3ProjectsState extends State<DS3Projects> {
       img2: Assets.exp2Img2,
       img3: Assets.exp2Img3,
       img4: Assets.exp2Img4,
-      img5: Assets.exp2Img5,
     ),
     ProjectsContainer(
       projectName: DataValues.experienceOrg3Title,
@@ -66,20 +64,18 @@ class _DS3ProjectsState extends State<DS3Projects> {
       img2: Assets.exp3Img2,
       img3: Assets.exp3Img3,
       img4: Assets.exp3Img4,
-      img5: Assets.exp3Img5,
     ),
     ProjectsContainer(
       projectName: DataValues.experienceOrg4Title,
       technologies: DataValues.experience4Description,
       experienceDescription: DataValues.experienceOrg4Description,
       playStoreUrl: null,
-      previewUrl: DataValues.xCookerPreviewUrl,
+      previewUrl: DataValues.adaToMobileUrl,
       isDeployed: false,
       img1: Assets.exp4Img1,
       img2: Assets.exp4Img2,
       img3: Assets.exp4Img3,
       img4: Assets.exp4Img4,
-      img5: Assets.exp4Img5,
     ),
   ];
 
@@ -88,61 +84,58 @@ class _DS3ProjectsState extends State<DS3Projects> {
     return Container(
       key: KeyHolders.projectsKey,
       color: AppThemeData.backgroundGrey,
-      child: Padding(
-        padding: responsivePaddingFixedValue,
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const FrameTitle(
-              title: DataValues.experienceTitle,
-              hasDescription: true,
-            ),
-            CarouselSlider(
-              carouselController: controller,
-                items: items,
-                options: CarouselOptions(
-                  height: 700,
-                  aspectRatio: 16/9,
-                  viewportFraction: 1,
-                  enableInfiniteScroll: true,
-                  onPageChanged: (index, _){
-                    setState(() {
-                      currentIndex = index;
-                    });
-                  },
-                  autoPlay: widget.canCarouselScroll! ? true : false,
-                  autoPlayInterval: const Duration(seconds: 7),
-                  autoPlayAnimationDuration: const Duration(seconds: 3),
-                  autoPlayCurve: Curves.fastOutSlowIn,
-                  enlargeCenterPage: true,
-                ),
-            ),
-            const SizedBox(height: 20,),
-            Center(
-              child: DotsIndicator(
-                dotsCount: items.length,
-                position: currentIndex,
-                decorator: const DotsDecorator(
-                  color: AppThemeData.textCursor,
-                  activeColor: AppThemeData.primaryColor,
-                  sizes: [
-                    Size.square(15.0),
-                    Size.square(15.0),
-                    Size.square(15.0),
-                    Size.square(15.0),
-                  ],
-                  activeSizes: [
-                    Size.square(20.0),
-                    Size.square(20.0),
-                    Size.square(20.0),
-                    Size.square(20.0),
-                  ],
-                    spacing: EdgeInsets.all(10.0)
-                ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const FrameTitle(
+            title: DataValues.experienceTitle,
+            hasDescription: true,
+          ),
+          CarouselSlider(
+            carouselController: controller,
+              items: items,
+              options: CarouselOptions(
+               height: 700,
+                aspectRatio: 16/9,
+                viewportFraction: 0.7,
+                enableInfiniteScroll: true,
+                onPageChanged: (index, _){
+                  setState(() {
+                    currentIndex = index;
+                  });
+                },
+                autoPlay: widget.canCarouselScroll! ? true : false,
+                autoPlayInterval: const Duration(seconds: 7),
+                autoPlayAnimationDuration: const Duration(seconds: 3),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                enlargeCenterPage: true,
+              ),
+          ),
+          const SizedBox(height: 20,),
+          Center(
+            child: DotsIndicator(
+              dotsCount: items.length,
+              position: currentIndex,
+              decorator: const DotsDecorator(
+                color: AppThemeData.textCursor,
+                activeColor: AppThemeData.primaryColor,
+                sizes: [
+                  Size.square(15.0),
+                  Size.square(15.0),
+                  Size.square(15.0),
+                  Size.square(15.0),
+                ],
+                activeSizes: [
+                  Size.square(20.0),
+                  Size.square(20.0),
+                  Size.square(20.0),
+                  Size.square(20.0),
+                ],
+                  spacing: EdgeInsets.all(10.0)
               ),
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
